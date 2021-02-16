@@ -347,6 +347,7 @@ function tokenFormat() {
     return new Promise(async resolve => {
         if (tokenArr[$.index - 1] && tokenArr[$.index - 1].farm_jstoken) {
             currentToken = tokenArr[$.index - 1];
+            console.log('currentToken:'+JSON.stringify(currentToken))
         } else {
             currentToken = tokenNull;
         }
@@ -737,6 +738,7 @@ function doTask({tasklevel, left, taskname, eachtimeget}) {
 function taskUrl(function_path, body) {
     return {
         url: `${JXNC_API_HOST}cubeactive/farm/${function_path}?${body}&farm_jstoken=${currentToken['farm_jstoken']}&phoneid=${currentToken['phoneid']}&timestamp=${currentToken['timestamp']}&sceneval=2&g_login_type=1&callback=whyour&_=${Date.now()}&g_ty=ls`,
+        
         headers: {
             Cookie: currentCookie,
             Accept: `*/*`,
