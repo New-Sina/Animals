@@ -314,7 +314,7 @@ function index(info=false) {
 async function helpFriends() {
   $.canHelp = true
   for (let code of $.newShareCodes) {
-    console.log(`去帮助好友${code['inviteCode']}`)
+    console.log(`去帮助好友${code}`)
     await helpFriend(code)
     if(!$.canHelp) break
     await $.wait(1000)
